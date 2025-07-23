@@ -1,9 +1,14 @@
 # Funzione per chiamare LLM
 
 from groq import Groq
-from script.config import GROQ_API_KEY
+from dotenv import load_dotenv
+import os
 
-client = Groq(api_key=GROQ_API_KEY)
+load_dotenv()
+api_key = os.getenv("API_KEY")
+
+
+client = Groq(api_key=api_key)
 
 def query_llm(prompt, model="llama-3.3-70b-versatile", temperature=0.3):
     response = client.chat.completions.create(
