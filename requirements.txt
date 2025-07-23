@@ -1,0 +1,4 @@
+groq
+weasyprint
+jinja2
+tqdm

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Security Report</title>
+  <style>
+    body { font-family: Arial; padding: 10px; font-size: 10px }
+    .section { margin-bottom: 10px; }
+    .box { border: 1px solid #ccc; padding: 10px; margin-top: 10px; border-radius: 5px; }
+    .risk { color: red; font-weight: bold; }
+    hr { margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; margin-bottom: 30px">🔒 Security Report</h1>
+
+  {% for item in data %}
+    <div class="section" style="display: flex; flex-wrap: wrap; gap: 20px;">
+       <div style="flex: 1;">
+    <p><strong>Host:</strong> {{ item.host or "Missing Data"}}:{{ item.port or "Missing Data"}} ({{ item.protocol or "Missing Data"}})</p>
+    <p><strong>Service:</strong> {{ item.svc_name or "Missing Data"}}</p>
+         <p><strong>CVE:</strong> {{ item.cve_list or "Missing Data"}}</p>
+         <p><strong>CWE:</strong> {{ item.cwe or "Missing Data"}}</p>
+         <p><strong>CVSS Score:</strong> {{ item.cvss3_base_score or "Missing Data"}}</p>
+             <p><strong>Plugin:</strong> {{ item.plugin_name or "Missing Data"}} (ID: {{ item.plugin_id or "Missing Data"}})</p>
+  </div>
+
+  <div style="flex: 1;">
+    <p><strong>Exploit Available:</strong> {{ item.exploit_available or "Missing Data" }}</p>
+    <p><strong>Version:</strong> {{ item.version or "Missing Data"}}</p>
+    <p><strong>Exploitability Value:</strong> {{ item.exploitability or "Missing Data"}}</p>
+    <p><strong>Severity:</strong> <span class="risk">{{ item.severity or "Missing Data"}}</span></p>
+    <p><strong>Risk:</strong> {{ item.risk_factor or "Missing Data"}}</p>
+    <p><strong>Risk Value:</strong> {{ item.risk_value or "Missing Data"}}</p>
+  </div>
+    </div>
+    <div class="box">
+      <p><strong>Description:</strong></p>
+      <p>{{ item.description or "Missing Data"}}</p>
+    </div>
+  <div class="box">
+      <p><strong>Possible attack scenario:</strong></p>
+      <p>{{ item.attack_scenarious or "Missing Data"}}</p>
+    </div>
+    <div class="box">
+      <p><strong>Solution:</strong></p>
+      <p>{{ item.solution or "Missing Data"}}</p>
+    </div>
+  <div class="box">
+      <p><strong>Remediation step-by-step:</strong></p>
+      <p>{{ item.remediation.replace('\n', '<br>')|safe or "Missing Data" }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+</body>
+</html>
+
