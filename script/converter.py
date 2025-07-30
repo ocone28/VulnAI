@@ -43,7 +43,14 @@ def parse_nessus_to_json(nessus_file):
                     "risk_factor": risk_factor,
                     "cve_list": "" if cves == [] else cves,
                     "cwe": report_item.findtext("cwe", default=""),
-                    "cvss3_base_score": report_item.findtext("cvss3_base_score", default="")
+                    "cvss3_base_score": report_item.findtext("cvss3_base_score", default=""),
+                    "cvss3_vector": report_item.findtext("cvss3_vector", default=""),
+                    "cvss3_temporal_score": report_item.findtext("cvss3_temporal_score", default=""),
+                    "cvss3_temporal_vector": report_item.findtext("cvss3_temporal_vector", default=""),
+                    "cvss2_base_score": report_item.findtext("cvss_base_score", default=""),
+                    "cvss2_vector": report_item.findtext("cvss_vector", default=""),
+                    "cvss2_temporal_score": report_item.findtext("cvss_temporal_score", default=""),
+                    "cvss2_temporal_vector": report_item.findtext("cvss_temporal_vector", default="")
                 }
 
 

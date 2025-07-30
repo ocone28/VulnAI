@@ -14,7 +14,7 @@ if __name__ == '__main__':
     hostip=parse_nessus_to_json("data/scan.nessus")
 
     #xxx filtro per prendere poche vulnerabilita
-    #filtered_vulnerability("severity","4")
+    filtered_vulnerability("severity","4")
 
 
     # script nmap
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     #generate_json_complete()
 
     #6 generate report -> report.py TODO-> aggiornare il report con informazioni aggiuntive es versione del protocollo
-    generate_report_pdf()
+    #generate_report_pdf()
 
     print(f"[✓] 7. L'intero processo è terminato con successo!")
 

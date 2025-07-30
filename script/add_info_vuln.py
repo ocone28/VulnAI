@@ -5,5 +5,10 @@
 # Caso 2(medio): ho cvss ma non ho alcun CVE opzioni: 1) ignoro 2) chiedo all'llm data quella vuln che CVE ha associata.
 # Caso 3(difficle): non ho ne cvss ne CVE soluzione: dall'llm mi faccio dire che cve è associato a quella vuln con il suo rispettivo cvss. (in caso piu di uno prendo quello con cvss piu alto)
 
+
+
+
+#
+
 def add_info_vunerability():
     print("ciao")

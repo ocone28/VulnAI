@@ -5637,7 +5637,7 @@ Note that SYN scans are less intrusive than TCP (full connect) scans against bro
 <plugin_output>Port 8787/tcp was found to be open</plugin_output>
 </ReportItem>
 <ReportItem port="8180" svc_name="www" protocol="tcp" severity="4" pluginID="171340" pluginName="Apache Tomcat SEoL (&lt;= 5.5.x)" pluginFamily="Web Servers">
-<cpe>cpe:/a:apache:tomcat:5</cpe>
+<cpe>cpe:/a:apache:tomcat:5</cpe>CVE-2010-2075CVE-2010-2075
 <cvss3_base_score>10.0</cvss3_base_score>
 <cvss3_vector>CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H</cvss3_vector>
 <cvss_base_score>10.0</cvss_base_score>
