@@ -1,7 +1,7 @@
 import json
 import xml.etree.ElementTree as ET
 
-def add_nmap_info():
+def add_nmap_info(file_json):
     # Step 1: Estrai 'product' e 'version' dal file XML
     xml_file = "data/myscan.xml"
     tree = ET.parse(xml_file)
@@ -21,7 +21,7 @@ def add_nmap_info():
             }
 
     # Step 2: Carica il file JSON e aggiorna i campi
-    json_file = "data/scan_results_filtered.json"
+    json_file = file_json
 
     with open(json_file, "r", encoding="utf-8") as f:
         dati = json.load(f)

@@ -9,37 +9,36 @@ from script.nmap_scan import nmap_scan
 from script.add_info_vuln import add_info_vunerability
 
 if __name__ == '__main__':
+    file_nessus="data/scan.nessus"
+    file = "data/scan_results.json"
+    json_file="data/scan_results_prova.json" #da sostituire con scan_results_filtered.json
 
     #1 converter file -> converter.py
-    hostip=parse_nessus_to_json("data/scan.nessus")
+    #hostip=parse_nessus_to_json(file_nessus,file)
 
     #xxx filtro per prendere poche vulnerabilita
-    filtered_vulnerability("severity","4")
-
+    #filtered_vulnerability("severity","4",file,json_file)
 
     # script nmap
     #nmap_scan(hostip)
 
     #aggiunegere le informazioni di nmap a oggetti filtrati
-    #add_nmap_info()
+    #add_nmap_info(json_file)
 
     #2 attack scenarious -> finding_context_enhancer.py
-    #attack_scenarious()
+    #attack_scenarious(json_file)
 
-    #TODO
-    #add_info_vunerability()
+
+    #add_info_vunerability(json_file)
 
     #3 exploitability e risk priotitizer -> exploitability_riskprioritizer.py
-    #exploitability_riskprioritizer()
+    #exploitability_riskprioritizer(json_file)
 
     #4 remediation -> remediation_recommendation_generator.py
-    #remediation_generator()
-
-    #5 generate json -> generate_json_complete.py
-    #generate_json_complete()
+    #remediation_generator(json_file)
 
     #6 generate report -> report.py TODO-> aggiornare il report con informazioni aggiuntive es versione del protocollo
-    #generate_report_pdf()
+    generate_report_pdf(json_file)
 
     print(f"[✓] 7. L'intero processo è terminato con successo!")
 

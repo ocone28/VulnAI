@@ -4,8 +4,8 @@ from script.llm import query_llm
 from tqdm import tqdm
 import time
 
-def attack_scenarious():
-    json_file= "data/scan_results_filtered.json"
+def attack_scenarious(file_json):
+    json_file= file_json
 
     # Carica il file
     with open(json_file, "r") as f:

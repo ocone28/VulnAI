@@ -3,8 +3,8 @@ from script.llm import query_llm
 from tqdm import tqdm
 import time
 
-def remediation_generator():
-    json_file = "data/scan_results_filtered.json"
+def remediation_generator(file_json):
+    json_file = file_json
 
     with open(json_file, "r") as f:
         data = json.load(f)

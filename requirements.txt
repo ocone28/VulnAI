@@ -3,3 +3,4 @@ weasyprint
 jinja2
 tqdm
 dotenv
+cvss

@@ -33,7 +33,58 @@
     <p><strong>Risk:</strong> {{ item.risk_factor or "Missing Data"}}</p>
     <p><strong>Risk Value:</strong> {{ item.risk_value or "Missing Data"}}</p>
   </div>
+    <div>
+
+        {% if item.cvss3_base_score != "" %}
+  <p><strong>CVSSv3 Base Score:</strong> {{ item.cvss3_base_score }}</p>
+{% endif %}
+
+{% if item.cvss3_vector != "" %}
+  <p><strong>CVSSv3 Vector:</strong> {{ item.cvss3_vector }}</p>
+{% endif %}
+
+{% if item.cvss3_temporal_score != "" %}
+  <p><strong>CVSSv3 Temporal Score:</strong> {{ item.cvss3_temporal_score }}</p>
+{% endif %}
+
+{% if item.cvss3_temporal_vector != "" %}
+  <p><strong>CVSSv3 Temporal Vector:</strong> {{ item.cvss3_temporal_vector }}</p>
+{% endif %}
+
+{% if item.cvss2_base_score != "" %}
+  <p><strong>CVSSv2 Base Score:</strong> {{ item.cvss2_base_score }}</p>
+{% endif %}
+
+{% if item.cvss2_vector != "" %}
+  <p><strong>CVSSv2 Vector:</strong> {{ item.cvss2_vector }}</p>
+{% endif %}
+
+{% if item.cvss2_temporal_score != "" %}
+  <p><strong>CVSSv2 Temporal Score:</strong> {{ item.cvss2_temporal_score }}</p>
+{% endif %}
+
+{% if item.cvss2_temporal_vector != "" %}
+  <p><strong>CVSSv2 Temporal Vector:</strong> {{ item.cvss2_temporal_vector }}</p>
+{% endif %}
+
+
+        {% if item.cvss3_vector_by_cvss2_vector_with_llm != "" %}
+  <p><strong>CVSSv3 Vector (from CVSSv2 via LLM):</strong> {{ item.cvss3_vector_by_cvss2_vector_with_llm }}</p>
+{% endif %}
+
+{% if item.cvss3_base_score_by_cvss2_vector != "" %}
+  <p><strong>CVSSv3 Base Score (from CVSSv2):</strong> {{ item.cvss3_base_score_by_cvss2_vector }}</p>
+{% endif %}
+
+{% if item.cvss3_llm_vector_by_description != "" %}
+  <p><strong>CVSSv3 Vector (by Description with LLM):</strong> {{ item.cvss3_llm_vector_by_description }}</p>
+{% endif %}
+
+{% if item.cvss3_llm_base_score_by_description != "" %}
+  <p><strong>CVSSv3 Base Score (by Description with LLM):</strong> {{ item.cvss3_llm_base_score_by_description }}</p>
+{% endif %}
     </div>
+       </div>
     <div class="box">
       <p><strong>Description:</strong></p>
       <p>{{ item.description or "Missing Data"}}</p>
@@ -48,7 +99,11 @@
     </div>
   <div class="box">
       <p><strong>Remediation step-by-step:</strong></p>
-      <p>{{ item.remediation.replace('\n', '<br>')|safe or "Missing Data" }}</p>
+      {% if item.remediation %}
+  <p>{{ item.remediation.replace('\n', '<br>') | safe }}</p>
+    {% else %}
+      <p>Missing Data</p>
+    {% endif %}
     </div>
     <hr>
   {% endfor %}

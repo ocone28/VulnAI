@@ -2,8 +2,8 @@ import xml.etree.ElementTree as ET
 import json
 import re
 
-def parse_nessus_to_json(nessus_file):
-    output_json_file="data/scan_results.json"
+def parse_nessus_to_json(nessus_file,json_file):
+    output_json_file=json_file
     try:
         tree = ET.parse(nessus_file)
         root = tree.getroot()
